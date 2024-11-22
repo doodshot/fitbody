@@ -7,8 +7,18 @@ export const styles = StyleSheet.create({
         alignItems: "center", // Centra orizzontalmente
     },
     text1: {
-        fontSize: 25.47,
+        fontSize: 42,
         fontWeight: "bold",
-
+        color: "#E2F163"
+    },
+    text2: {
+        fontSize: 52,
+        fontWeight: "bold",
+        color: "#E2F163"
+    },
+    text3: {
+        fontSize: 52,
+        fontWeight: "light",
+        color: "#E2F163"
     }
 });
