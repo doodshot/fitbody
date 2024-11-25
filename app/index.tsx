@@ -1,10 +1,8 @@
 import {ImageBackground, Text, View, Image, StatusBar} from "react-native";
 import { styles } from "@/components/Atoms/ViewStyles";
 import {useFonts} from "expo-font";
-import {SplashScreen} from "expo-router";
 
 export default function Index() {
-
     //useFont
     const [loaded, error] = useFonts({
         'LeagueSpartan-Bold': require('../assets/fonts/LeagueSpartan-Bold.ttf'),
@@ -15,10 +13,9 @@ export default function Index() {
         return null;
     }
     return (
-       <ImageBackground source={require('../assets/images/sfondo1-img.png')}
+         <ImageBackground source={require('../assets/images/sfondo1-img.png')}
             resizeMode={"cover"}
             style={styles.container}>
-           <StatusBar hidden={true} /> // nascondo la status bar
            <Text style={[styles.text1, {fontFamily: "LeagueSpartan-Bold"}]}>
                Welcome to
            </Text>
@@ -26,6 +23,6 @@ export default function Index() {
            <Text style={[styles.text2, {fontFamily: "Poppins-Bold"}]}>
                FIT<Text style={[styles.text3, {fontFamily: "Poppins-Italic"}]}>BODY</Text>
            </Text>
-       </ImageBackground>
+        </ImageBackground>
     );
 }

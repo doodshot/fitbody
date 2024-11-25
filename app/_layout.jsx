@@ -1,10 +1,26 @@
-import { Stack } from "expo-router";
-import {StatusBar} from "react-native";
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {OnBoardingMen} from "@/app/screens/OnBoardingMen";
+import Index from "@/app/index";
 
-export default function RootLayout() {
+const Stack = createNativeStackNavigator();
+
+export default function() {
     return (
-        <Stack>
-            <Stack.Screen name="index" />
-        </Stack>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Index">
+                <Stack.Screen
+                    name="Index"
+                    component={Index}
+                    options={{title: 'Welcome', headerShown: false}}
+                />
+                <Stack.Screen
+                    name="OnBoardingMen"
+                    component={OnBoardingMen}
+                    options={{title: 'OnBoardingMen', headerShown: false}}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 }
