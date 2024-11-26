@@ -19,24 +19,8 @@
       "bundler": "metro",
       "output": "static"
     },
-    "plugins": [
-
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ],
-      [
-        "expo-font",
-        {
-          "fonts": ["assets/fonts/LeagueSpartan-Bold.ttf", "assets/fonts/Poppins-Bold.ttf", "assets/fonts/Poppins-Italic.ttf"]
-        }
-      ]
-    ],
+    "plugins": [],
+    "assetBundlePatterns": ["assets/**/*"],
     "experiments": {
       "typedRoutes": true
     }
