@@ -34,7 +34,10 @@ export default function Index() {
             <Text style={[styles.text2, {fontFamily: "Poppins-Bold"}]}>
                 FIT<Text style={[styles.text3, {fontFamily: "Poppins-Italic"}]}>BODY</Text>
             </Text>
-            <Button title={"Vai next"} onPress={() => navigation.navigate('Home')}/>
+            <Button title={"Vai next"} onPress={() => {
+                console.log('Navigating to Home...');
+                navigation.navigate('Home');
+            }} />
         </ImageBackground>
     );
 }
