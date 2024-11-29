@@ -1,5 +1,6 @@
 {
   "expo": {
+    "entryPoint": "./index.js",
     "name": "fitbody",
     "slug": "fitbody",
     "version": "1.0.0",
