@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { ImageBackground, Text, View, Image, Button } from "react-native";
 import { styles } from "../../components/Atoms/ViewStyles";
 import { useNavigation } from '@react-navigation/native';
@@ -14,10 +14,24 @@ export default function Home() {
         'Poppins-Italic': require('../../assets/fonts/Poppins-Italic.ttf'),
     });
 
-    if (!loaded && !error) {
-        return null;
-    }
+    /*USE EFFECT*/
+    useEffect(() => {
+        if (!loaded) {
+            const timeout = setTimeout( () => { //setTimout di 3 secondi
+                navigation.navigate('OnBoardingMen');
+            },1500)
+            return () => clearTimeout(timeout); // pulizia del timeout
+        }
+    }, []);
 
+    // caricamento dei font
+    if (!loaded) {
+        return (
+            <View style={styles.container}>
+                <Text>Loading fonts...</Text>
+            </View>
+        );
+    }
     return (
         <ImageBackground
             source={require('../../assets/images/sfondo1-img.png')}
@@ -34,10 +48,6 @@ export default function Home() {
             <Text style={[styles.text2, {fontFamily: "Poppins-Bold"}]}>
                 FIT<Text style={[styles.text3, {fontFamily: "Poppins-Italic"}]}>BODY</Text>
             </Text>
-            <Button title={"Vai next"} onPress={() => {
-                console.log('Navigating to Home...');
-                navigation.navigate('OnBoardingMen');
-            }} />
         </ImageBackground>
     );
 }
