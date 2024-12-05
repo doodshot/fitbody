@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "./screens/Home";
 import OnBoardingMen from "./screens/OnBoardingMen";
-import onBoardingWomen from "./screens/onBoardingWomen";
+
 
 export default function Index() {
 const Stack = createNativeStackNavigator();
@@ -22,10 +22,6 @@ const Stack = createNativeStackNavigator();
                 <Stack.Screen
                     name="OnBoardingMen"
                     component={OnBoardingMen}
-                />
-                <Stack.Screen
-                    name="OnBoardingWomen"
-                    component={onBoardingWomen}
                 />
             </Stack.Navigator>
         </NavigationContainer>
