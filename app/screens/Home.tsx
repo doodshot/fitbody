@@ -4,6 +4,10 @@ import { styles } from "../../components/Atoms/ViewStyles";
 import { useNavigation } from '@react-navigation/native';
 import {useFonts} from "expo-font";
 
+
+
+
+
 export default function Home() {
     const navigation = useNavigation();
 
