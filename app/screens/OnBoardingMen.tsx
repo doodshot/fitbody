@@ -1,11 +1,12 @@
 import React from 'react';
 import { Image, ImageBackground, Text, View, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 import {useFonts} from "expo-font";
 import OnBoardingMenuButton from '../../components//molecules/OnBoardingMenButton';
+import { RootStackParamList } from '@/app'
 
 export default function OnBoardingMen() {
-    const navigation = useNavigation();
+    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
     //font
     const [loaded, error] = useFonts({
@@ -22,7 +23,7 @@ export default function OnBoardingMen() {
         );
     }
      const OnPressNavigation = () => {
-        return navigation.navigate('onBoardingWomen')
+        return navigation.navigate('OnBoardingWomen')
      }
 
     return (
@@ -33,6 +34,7 @@ export default function OnBoardingMen() {
                 <Image
                     source={require('../../assets/images/img-Run-icon.png')}
                     style={styles.icon}
+                    resizeMode="cover"
                 />
                 <Text style={styles.text}>
                     Start Your Journey Towards
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
         height: 169,
         width: '100%',
         backgroundColor: '#B3A0FF',
-
+        fontFamily: "Poppins-Bold",
     },
     icon: {
         width: 54,

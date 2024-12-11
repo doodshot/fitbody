@@ -1,44 +1,51 @@
 import * as React from 'react';
-import {registerRootComponent} from "expo";
+import { registerRootComponent } from "expo";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "./screens/Home";
 import OnBoardingMen from "./screens/OnBoardingMen";
-import {onBoardingWomen} from "./screens/onBoardingWomen";
+import {OnBoardingWomen} from "./screens/onBoardingWomen";
+import {OnBoardingCommunity} from "@/app/screens/OnBoardingCommunity";
 
-enum  Routes {
-    home = "Home",
-    onBoardingMen = "OnBoardingMen",
-    onBoardingWomen = "OnBoardingWomen",
+enum Routes {
+    Home = "Home",
+    OnBoardingMen = "OnBoardingMen",
+    OnBoardingWomen = "OnBoardingWomen",
+    OnBoardingCommunity = "OnBoardingCommunity",
 }
 
-type RootStackParamList = {
+export type RootStackParamList = {
     Home: undefined;
     OnBoardingMen: undefined;
     OnBoardingWomen: undefined;
-};
+    OnBoardingCommunity: undefined;
+}
 
-export default function Index() {
 const Stack = createNativeStackNavigator();
 
+export default function Index() {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Home"
+                initialRouteName={Routes.Home}
                 screenOptions={{ headerShown: false }}
             >
                 <Stack.Screen
-                    name="Home"
+                    name={Routes.Home}
                     component={Home}
                 />
                 <Stack.Screen
-                    name="OnBoardingMen"
+                    name={Routes.OnBoardingMen}
                     component={OnBoardingMen}
                 />
                 <Stack.Screen
-                    name="onBoardingWomen"
-                    component={onBoardingWomen}
+                    name={Routes.OnBoardingWomen}
+                    component={OnBoardingWomen}
                 />
+                <Stack.Screen
+                    name={Routes.OnBoardingCommunity}
+                    component={OnBoardingCommunity}
+                    />
             </Stack.Navigator>
         </NavigationContainer>
     );

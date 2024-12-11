@@ -1,15 +1,13 @@
 import React, {useEffect} from 'react';
 import { ImageBackground, Text, View, Image, Button } from "react-native";
-import { styles } from "../../components/Atoms/ViewStyles";
+import { styles } from "@/components/Atoms/ViewStyles";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import {useFonts} from "expo-font";
-
-
-
-
+import { RootStackParamList } from '@/app'
 
 export default function Home() {
-    const navigation = useNavigation();
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     // useFont
     const [loaded, error] = useFonts({
@@ -22,7 +20,7 @@ export default function Home() {
     useEffect(() => {
         if (!loaded) {
             const timeout = setTimeout( () => { //setTimout di 3 secondi
-                navigation.navigate('OnBoardingMen');
+                navigation.replace('OnBoardingMen');
             },1500)
             return () => clearTimeout(timeout); // pulizia del timeout
         }

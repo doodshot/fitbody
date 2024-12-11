@@ -6,7 +6,7 @@ import OnBoardingMenuButton from "@/components/molecules/OnBoardingMenButton";
 import React from "react";
 
 
-export function OnBoardingWomen() {
+export function OnBoardingCommunity() {
 
     const navigation = useNavigation<NavigationProp<RootStackParamList>>();
     // Caricamento dei font
@@ -25,30 +25,29 @@ export function OnBoardingWomen() {
     }
 
     const OnPressNavigation = () => {
-        return navigation.navigate('OnBoardingCommunity')
+       // return navigation.navigate('')
     }
 
     return (
         <ImageBackground
-            source={require("../../assets/images/women-background.png")}
+            source={require("../../assets/images/sport-men-final-community.png")}
             style={styles.imageBackground}>
 
             <View style={styles.containerText}>
                 <Image
-                    source={require('../../assets/images/logo-mela.png')}
+                    source={require('../../assets/images/icon-community.png')}
                     style={styles.icon}
                     resizeMode="cover"
                 />
                 <Text style={styles.text}>
-                    Find Nutrition Tips That Fit
+                    A Community For You,
                 </Text>
                 <Text style={styles.text}>
-                    Your Lifestyle
+                    Challenge Yourself
                 </Text>
             </View>
-            <OnBoardingMenuButton onPress={OnPressNavigation} title={"Next"}>
+            <OnBoardingMenuButton onPress={OnPressNavigation} title={"Get Started"}>
             </OnBoardingMenuButton>
-
         </ImageBackground>
     );
 }
@@ -65,11 +64,11 @@ const styles = StyleSheet.create({
         height: 169,
         width: '100%',
         backgroundColor: '#B3A0FF',
-        fontFamily: "Poppins-Bold",
+
     },
     icon: {
-        width: 60,
-        height: 70,
+        width: 80,
+        height: 80,
         marginBottom: 10,
     },
     text: {
