@@ -1,9 +1,10 @@
 import React from 'react';
-import { Image, ImageBackground, Text, View, StyleSheet } from 'react-native';
+import {Image, ImageBackground, Text, View, StyleSheet, Touchable, TouchableOpacity} from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import {useFonts} from "expo-font";
 import OnBoardingMenuButton from '../../components//molecules/OnBoardingMenButton';
 import { RootStackParamList } from '@/app'
+import OnBoardingBtnSkip from "@/components/molecules/btn/OnBoardingBtnSkip";
 
 export default function OnBoardingMen() {
     const navigation = useNavigation<NavigationProp<RootStackParamList>>();
@@ -25,16 +26,23 @@ export default function OnBoardingMen() {
      const OnPressNavigation = () => {
         return navigation.navigate('OnBoardingWomen')
      }
+    const onSkip = () => {
+        return navigation.navigate('Login')
+    }
 
     return (
         <ImageBackground
             style={styles.container}
             source={require('../../assets/images/sfondo-2-men.png')}>
+            <OnBoardingBtnSkip onPress={onSkip} title={"Skip >"}>
+
+            </OnBoardingBtnSkip>
+
             <View style={styles.containerText}>
                 <Image
                     source={require('../../assets/images/img-Run-icon.png')}
                     style={styles.icon}
-                    resizeMode="cover"
+                    resizeMode="contain"
                 />
                 <Text style={styles.text}>
                     Start Your Journey Towards
@@ -60,14 +68,12 @@ const styles = StyleSheet.create({
     containerText: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: 169,
+        height: 180,
         width: '100%',
         backgroundColor: '#B3A0FF',
         fontFamily: "Poppins-Bold",
     },
     icon: {
-        width: 54,
-        height: 70,
         marginBottom: 10,
     },
     text: {

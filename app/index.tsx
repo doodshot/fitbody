@@ -6,12 +6,14 @@ import Home from "./screens/Home";
 import OnBoardingMen from "./screens/OnBoardingMen";
 import {OnBoardingWomen} from "./screens/onBoardingWomen";
 import {OnBoardingCommunity} from "@/app/screens/OnBoardingCommunity";
+import Login from "@/app/screens/Login";
 
 enum Routes {
     Home = "Home",
     OnBoardingMen = "OnBoardingMen",
     OnBoardingWomen = "OnBoardingWomen",
     OnBoardingCommunity = "OnBoardingCommunity",
+    Login = "Login"
 }
 
 export type RootStackParamList = {
@@ -19,6 +21,7 @@ export type RootStackParamList = {
     OnBoardingMen: undefined;
     OnBoardingWomen: undefined;
     OnBoardingCommunity: undefined;
+    Login: undefined;
 }
 
 const Stack = createNativeStackNavigator();
@@ -30,6 +33,7 @@ export default function Index() {
                 initialRouteName={Routes.Home}
                 screenOptions={{ headerShown: false }}
             >
+
                 <Stack.Screen
                     name={Routes.Home}
                     component={Home}
@@ -46,6 +50,9 @@ export default function Index() {
                     name={Routes.OnBoardingCommunity}
                     component={OnBoardingCommunity}
                     />
+                <Stack.Screen
+                    name={Routes.Login}
+                    component={Login}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

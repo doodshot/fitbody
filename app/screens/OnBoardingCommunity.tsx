@@ -25,7 +25,7 @@ export function OnBoardingCommunity() {
     }
 
     const OnPressNavigation = () => {
-       // return navigation.navigate('')
+        return navigation.navigate('Login')
     }
 
     return (
@@ -37,7 +37,7 @@ export function OnBoardingCommunity() {
                 <Image
                     source={require('../../assets/images/icon-community.png')}
                     style={styles.icon}
-                    resizeMode="cover"
+                    resizeMode="contain"
                 />
                 <Text style={styles.text}>
                     A Community For You,
@@ -61,14 +61,13 @@ const styles = StyleSheet.create({
     containerText: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: 169,
+        height: 180,
         width: '100%',
         backgroundColor: '#B3A0FF',
 
     },
     icon: {
-        width: 80,
-        height: 80,
+
         marginBottom: 10,
     },
     text: {

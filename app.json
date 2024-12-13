@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.fitbody"
     },
     "android": {
       "adaptiveIcon": {
@@ -21,7 +22,9 @@
       "output": "static"
     },
     "plugins": [],
-    "assetBundlePatterns": ["assets/**/*"],
+    "assetBundlePatterns": [
+      "assets/**/*"
+    ],
     "experiments": {
       "typedRoutes": true
     }

@@ -4,6 +4,7 @@ import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from '@/app'
 import OnBoardingMenuButton from "@/components/molecules/OnBoardingMenButton";
 import React from "react";
+import OnBoardingBtnSkip from "@/components/molecules/btn/OnBoardingBtnSkip";
 
 
 export function OnBoardingWomen() {
@@ -28,16 +29,21 @@ export function OnBoardingWomen() {
         return navigation.navigate('OnBoardingCommunity')
     }
 
+    const onSkip = ()  => {
+        return navigation.navigate('Login')
+    }
+
     return (
         <ImageBackground
             source={require("../../assets/images/women-background.png")}
             style={styles.imageBackground}>
-
+            <OnBoardingBtnSkip onPress={onSkip} title={"Skip >"}>
+            </OnBoardingBtnSkip>
             <View style={styles.containerText}>
                 <Image
                     source={require('../../assets/images/logo-mela.png')}
                     style={styles.icon}
-                    resizeMode="cover"
+                    resizeMode="contain"
                 />
                 <Text style={styles.text}>
                     Find Nutrition Tips That Fit
@@ -62,14 +68,12 @@ const styles = StyleSheet.create({
     containerText: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: 169,
+        height: 180,
         width: '100%',
         backgroundColor: '#B3A0FF',
         fontFamily: "Poppins-Bold",
     },
     icon: {
-        width: 60,
-        height: 70,
         marginBottom: 10,
     },
     text: {
