@@ -2,57 +2,42 @@ import * as React from 'react';
 import { registerRootComponent } from "expo";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from "./screens/Home";
-import OnBoardingMen from "./screens/OnBoardingMen";
-import {OnBoardingWomen} from "./screens/onBoardingWomen";
-import {OnBoardingCommunity} from "@/app/screens/OnBoardingCommunity";
 import Login from "@/app/screens/Login";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import OnBoarding from "@/app/Navigation/OnBoarding";
+import {useEffect, useState} from "react";
+import {View, Text} from "react-native";
 
-enum Routes {
-    Home = "Home",
-    OnBoardingMen = "OnBoardingMen",
-    OnBoardingWomen = "OnBoardingWomen",
-    OnBoardingCommunity = "OnBoardingCommunity",
+export enum Routes {
+    OnBoarding = "OnBoarding",
     Login = "Login"
 }
 
 export type RootStackParamList = {
-    Home: undefined;
-    OnBoardingMen: undefined;
-    OnBoardingWomen: undefined;
-    OnBoardingCommunity: undefined;
+    OnBoarding: undefined;
     Login: undefined;
-}
+};
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function Index() {
+
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName={Routes.Home}
+                initialRouteName={Routes.OnBoarding}
                 screenOptions={{ headerShown: false }}
             >
 
                 <Stack.Screen
-                    name={Routes.Home}
-                    component={Home}
+                    name={Routes.OnBoarding}
+                    component={OnBoarding}
                 />
-                <Stack.Screen
-                    name={Routes.OnBoardingMen}
-                    component={OnBoardingMen}
-                />
-                <Stack.Screen
-                    name={Routes.OnBoardingWomen}
-                    component={OnBoardingWomen}
-                />
-                <Stack.Screen
-                    name={Routes.OnBoardingCommunity}
-                    component={OnBoardingCommunity}
-                    />
+
                 <Stack.Screen
                     name={Routes.Login}
-                    component={Login}/>
+                    component={Login}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );

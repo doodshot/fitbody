@@ -1,4 +1,4 @@
-import {View, Text, Image, StyleSheet} from "react-native";
+import {View, Text, Image, StyleSheet, TextInput} from "react-native";
 
 
 export default function  Login() {
@@ -23,9 +23,22 @@ export default function  Login() {
             </View>
             <View style={styles.containerForm}>
 
+                {/* email insert */}
+                <View style={styles.textFIeld}>
+                    <Text style={styles.textEmailPassword}>
+                        Email
+                    </Text>
+                    <TextInput style={styles.input} placeholder={"Email"} />
+                </View>
+                {/* password insert */}
+                <View style={styles.textFIeld}>
+                    <Text style={styles.textEmailPassword}>
+                     Password
+                    </Text>
+                    <TextInput style={styles.input} placeholder={"Password"} secureTextEntry={true} />
+                </View>
 
             </View>
-
         </View>
     )
 }
@@ -77,10 +90,26 @@ const styles = StyleSheet.create({
         width: 323,
     },
     containerForm: {
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: '#B3A0FF',
         width: '100%',
         height: 180,
         position: 'absolute',
         top: '50%',
+    },
+    textFIeld: {
+    },
+    textEmailPassword: {
+        textAlign: 'left',
+        fontWeight: 500,
+        fontFamily: 'poppins',
+        padding: 5
+    },
+    input: {
+        padding: 10,
+        backgroundColor: 'white',
+        width: 300,
+        borderRadius: 15
     }
 })

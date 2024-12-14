@@ -5,9 +5,11 @@ import {useFonts} from "expo-font";
 import OnBoardingMenuButton from '../../components//molecules/OnBoardingMenButton';
 import { RootStackParamList } from '@/app'
 import OnBoardingBtnSkip from "@/components/molecules/btn/OnBoardingBtnSkip";
+import {OnBoardingStackParamList} from "@/app/Navigation/OnBoarding";
 
 export default function OnBoardingMen() {
-    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+    const navigation = useNavigation<NavigationProp<OnBoardingStackParamList>>();
+    const navigation2 = useNavigation<NavigationProp<RootStackParamList>>();
 
     //font
     const [loaded, error] = useFonts({
@@ -27,7 +29,7 @@ export default function OnBoardingMen() {
         return navigation.navigate('OnBoardingWomen')
      }
     const onSkip = () => {
-        return navigation.navigate('Login')
+        return navigation2.navigate('Login')
     }
 
     return (

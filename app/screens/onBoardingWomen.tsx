@@ -5,11 +5,15 @@ import { RootStackParamList } from '@/app'
 import OnBoardingMenuButton from "@/components/molecules/OnBoardingMenButton";
 import React from "react";
 import OnBoardingBtnSkip from "@/components/molecules/btn/OnBoardingBtnSkip";
+import {OnBoardingStackParamList} from "@/app/Navigation/OnBoarding";
 
 
 export function OnBoardingWomen() {
 
-    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+    const navigation = useNavigation<NavigationProp<OnBoardingStackParamList>>();
+    const navigation2 = useNavigation<NavigationProp<RootStackParamList>>();
+
+
     // Caricamento dei font
     const [loaded, error] = useFonts({
         'LeagueSpartan-Bold': require('../../assets/fonts/LeagueSpartan-Bold.ttf'),
@@ -30,7 +34,7 @@ export function OnBoardingWomen() {
     }
 
     const onSkip = ()  => {
-        return navigation.navigate('Login')
+        return navigation2.navigate('Login')
     }
 
     return (

@@ -5,9 +5,10 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import {useFonts} from "expo-font";
 import { RootStackParamList } from '@/app'
+import {OnBoardingStackParamList} from "@/app/Navigation/OnBoarding";
 
 export default function Home() {
-    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    const navigation = useNavigation<NativeStackNavigationProp<OnBoardingStackParamList>>();
 
     // useFont
     const [loaded, error] = useFonts({
@@ -20,7 +21,7 @@ export default function Home() {
     useEffect(() => {
         if (!loaded) {
             const timeout = setTimeout( () => { //setTimout di 3 secondi
-                navigation.replace('OnBoardingMen');
+                return navigation.replace('OnBoardingMen');
             },1500)
             return () => clearTimeout(timeout); // pulizia del timeout
         }
