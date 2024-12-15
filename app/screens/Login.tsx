@@ -1,7 +1,17 @@
 import {View, Text, Image, StyleSheet, TextInput} from "react-native";
+import LogInBtn from "@/components/molecules/btn/LogInBtn";
+import {NavigationProp, useNavigation} from "@react-navigation/native";
+import {RootStackParamList} from "@/app";
+import {OnBoardingStackParamList} from "@/app/Navigation/OnBoarding";
 
 
 export default function  Login() {
+
+    const navigation = useNavigation<NavigationProp<OnBoardingStackParamList>>();
+
+    const onLogin = () => {
+         navigation.navigate('OnBoardingWomen')
+    }
     return (
         <View style={styles.container}>
             <View style={styles.containerTitle}>
@@ -24,20 +34,29 @@ export default function  Login() {
             <View style={styles.containerForm}>
 
                 {/* email insert */}
-                <View style={styles.textFIeld}>
+                <View>
                     <Text style={styles.textEmailPassword}>
                         Email
                     </Text>
                     <TextInput style={styles.input} placeholder={"Email"} />
                 </View>
                 {/* password insert */}
-                <View style={styles.textFIeld}>
+                <View>
                     <Text style={styles.textEmailPassword}>
                      Password
                     </Text>
                     <TextInput style={styles.input} placeholder={"Password"} secureTextEntry={true} />
                 </View>
-
+                {/* Forgot insert */}
+                <View style={styles.forgotElement}>
+                    <Text>
+                        Forgot Password?
+                    </Text>
+                </View>
+            </View>
+            {/* finish container form*/}
+            <View style={styles.loginBtn}>
+                <LogInBtn onPress={onLogin} title={"Log In"}/>
             </View>
         </View>
     )
@@ -98,8 +117,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: '50%',
     },
-    textFIeld: {
-    },
     textEmailPassword: {
         textAlign: 'left',
         fontWeight: 500,
@@ -111,5 +128,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: 300,
         borderRadius: 15
+    },
+    forgotElement: {
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+        width: '70%',
+        paddingTop: 8,
+    },
+    loginBtn: {
     }
 })
